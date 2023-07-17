@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.body {
+	margin: 0;
+	background-color: #f4f6fa;
+}
+
+.page {
+	min-height: 100vh;
+	flex-direction: column;
+	display: flex;
+}
+.container {
+	padding: 0 20px;
+	max-width: 1540px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.nav {
+	background-color: white;
+	padding: 20px 0;
+}
+
+.navtop {
+	background-color: #3579f3;
+	padding: 16px 0;
+}
+
+.nav-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.list {
+	list-style-type: none;
+	display: flex;
+	gap: 20px;
+	padding: 0;
+
+	.item {
+	}
+}
+
+.link {
+	text-decoration: none;
+	color: black;
+	font-weight: 600;
+}
+.white {
+	color: white;
+	text-decoration: none;
+}
+.button {
+	border: 1px solid #3579f3;
+	color: #3579f3;
+	border-radius: 4px;
+	outline: none;
+	font-weight: 600;
+	font-size: 14px;
+	background-color: transparent;
+	padding: 13px 20px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+
+	&:hover {
+		background-color: #3579f3;
+		color: white;
+	}
+}
+.button-blue {
+	background-color: #3579f3;
+	color: #f4f6fa;
+	font-size: 16px;
+
+	&:hover {
+		background-color: white;
+		color: #3579f3;
+	}
+}
+
+.main {
+	flex: 1;
+}
+
+.box-content {
+	width: 100%;
+	background-color: white;
+	padding: 40px 0;
+	border-radius: 8px;
+}
+.box-button {
+	display: flex;
+	padding: 40px 0;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer {
+	background-color: white;
+	flex-shrink: 0;
+	.footer-wrapper {
+		padding: 40px 0;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		span {
+			color: #8d94a6;
+			font-size: 14px;
+		}
+		.underline {
+			text-decoration: underline;
+		}
+	}
+}
+
+.popup {
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #000;
+	opacity: 0;
+	display: flex;
+	visibility: hidden;
+	transition: visibility 0.3s, opacity 0.3s;
+
+	.popup-content {
+		position: relative;
+		background-color: white;
+		border-radius: 8px;
+		width: 100%;
+		max-width: 381px;
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+
+			.input-wrapper {
+				display: flex;
+				flex-direction: column;
+			}
+			.error {
+				border: 1px solid #ff0000;
+				&:focus-visible {
+					outline: none;
+				}
+			}
+
+			.description {
+				font-size: 14px;
+			}
+
+			label {
+				padding-left: 12px;
+				margin-bottom: 4px;
+				font-size: 12px;
+				color: #8d94a6;
+			}
+			input {
+				padding: 10px 12px;
+				border: none;
+				font-size: 14px;
+				background-color: #f4f6fb;
+				border-radius: 4px;
+
+				&:focus-visible {
+					outline: 1px solid #3579f3;
+				}
+				&:focus-visible {
+					// outline: 1px solid #FF0000;
+				}
+			}
+		}
+	}
+	.text-error {
+		color: #ff0000;
+		font-size: 12px;
+		margin-top: 4px;
+	}
+
+	.text {
+		font-size: 12px;
+		color: #6d7589;
+		margin: 0;
+	}
+	.close {
+		font-size: 48px;
+		position: absolute;
+		top: 0;
+		right: 24px;
+
+		cursor: pointer;
+	}
+	.title {
+		font-size: 18px;
+		font-weight: 600;
+		margin: 0;
+	}
+}
+
+.popup_opened {
+	visibility: visible;
+	opacity: 1;
+}
