@@ -151,9 +151,18 @@
 			flex-direction: column;
 			gap: 16px;
 
-			.input-wrapper {
+			.form-wrapper {
 				display: flex;
 				flex-direction: column;
+			}
+			.input-wrapper {
+				position: relative;
+
+				img {
+					position: absolute;
+					top: 10px;
+					right: 12px;
+				}
 			}
 			.error {
 				border: 1px solid #ff0000;
@@ -178,6 +187,7 @@
 				font-size: 14px;
 				background-color: #f4f6fb;
 				border-radius: 4px;
+				width: 100%;
 
 				&:focus-visible {
 					outline: 1px solid #3579f3;
@@ -191,6 +201,7 @@
 	.text-error {
 		color: #ff0000;
 		font-size: 12px;
+		padding-left: 12px;
 		margin-top: 4px;
 	}
 
@@ -198,6 +209,11 @@
 		font-size: 12px;
 		color: #6d7589;
 		margin: 0;
+
+		span {
+			color: #3579f3;
+			text-decoration: underline;
+		}
 	}
 	.close {
 		font-size: 48px;
