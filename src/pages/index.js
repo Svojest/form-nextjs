@@ -1,15 +1,23 @@
 
 import Head from 'next/head'
 import Image from 'next/image'
+import { useContext, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { Content } from '@/components/Content'
+import Profile from './profile';
+
+import { AuthContext } from '@/context/AuthContext';
 
 
 export default function Home() {
+
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
+
+
   const router = useRouter();
   const { pathname } = router;
 
@@ -21,17 +29,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='page'>
-        <header className='header'>
-          <Header />
-        </header>
-        <main className='main'>
-          <Content pageName='Главная' />
-        </main>
-        <footer className='footer'>
-          <Footer />
-        </footer>
-      </div>
+      <Content pageName='Главная' isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+
     </>
   )
 }

@@ -2,10 +2,10 @@ import InputMask from 'react-input-mask';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
-import { postPhone, postCode } from '@/pages/api/endpoints';
+import { postPhone, postCode, refreshToken } from '@/pages/api/endpoints';
 import Timer from './Timer';
 
-export const Form = () => {
+export const Form = ({ isConfirmed, setIsConfirmed }) => {
 	const [isPhoneNumber, setIsPhoneNumber] = useState('');
 	const [isCodeNumber, setIsCodeNumber] = useState('');
 	const [isValid, setIsValid] = useState(true);
@@ -13,8 +13,6 @@ export const Form = () => {
 
 	const [isCallReady, setIsCallReady] = useState(false);
 	const [isSendSuccess, setIsSendSuccess] = useState(false);
-
-	const [isConfirmed, setIsConfirmed] = useState(false);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -61,6 +59,10 @@ export const Form = () => {
 
 				if (res.status === 200) {
 					setIsConfirmed(true);
+
+					localStorage.setItem('refresh_token', res.data.refresh_token);
+					const token = localStorage.getItem('refresh_token');
+					refreshToken(token);
 					localStorage.setItem('access_token', res.data.access_token);
 					setIsValidCode(true);
 				}
@@ -73,6 +75,7 @@ export const Form = () => {
 
 	return (
 		//
+
 		<form onSubmit={handleSubmit}>
 			<div className='form-wrapper'>
 				<label>Телефон</label>

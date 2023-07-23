@@ -1,7 +1,8 @@
-export const Crumbs = () => {
+export const Crumbs = ({crumbs}) => {
 	return (
-		<>
-			<p className="">Главная</p>
-		</>
+		<div className="crumbs">
+			<p className=''>{crumbs}</p>
+		</div>
+		
 	);
 };
