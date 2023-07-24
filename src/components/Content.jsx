@@ -23,7 +23,7 @@ export const Content = ({ pageName, isLoggedIn, setIsLoggedIn }) => {
 			<Crumbs crumbs='Главная' />
 			<h1>{pageName}</h1>
 
-			{isLoggedIn ? <div>1</div> : <div>2</div>}
+		
 			<div className='box-content'>
 				<div className='box-button'>
 					<button className='button button-blue' onClick={handlePopupOpen}>
